@@ -1,0 +1,72 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lc: <http://semweb.mmlab.be/ns/linkedconnections#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+<http://semweb.mmlab.be/ns/linkedconnections> a foaf:Document ;
+                                              foaf:primaryTopic lc:Ontology ;
+                                              dct:issued "2015-07-02"^^xsd:date ;
+                                              dct:modified "2015-07-02"^^xsd:date ;
+                                              #dct:hasFormat <https://raw.githubusercontent.com/linkedconnections/...> ;
+                                              dct:license <http://creativecommons.org/licenses/by/3.0/> ;
+                                              dct:rights "Copyright 2014 - Open Transport contributors" .
+
+lc:Ontology a owl:Ontology ;
+            rdfs:label "The Stop Times ontology"@en ;
+            rdfs:comment "This ontology provides the predicates necessary to describe an arrival of a transit vehicle and its departure at a certain Stop."@en ;
+            vann:preferredNamespacePrefix "lc" ;
+            vann:preferredNamespaceUri "http://semweb.mmlab.be/ns/linkedconnections#" ;
+            dct:creator [ foaf:mbox "Pieter.Colpaert@UGent.be"; foaf:name "Pieter Colpaert" ] .
+
+lc:Connection a rdfs:Class ;
+              rdfs:label "Connection"@en ;
+              rdfs:comment "Describes a departure at a certain stop and an arrival at a different stop"@en .
+
+lc:arrivalTime a rdf:Property ;
+               rdfs:label "Arrival Time"@en ;
+               rdfs:comment "The time of arrival at a certain stop (when e.g., a delay is announced, the lc:arrivalTime will show that actual time of arrival)"@en ;
+               rdfs:domain lc:Connection;
+               rdfs:range xsd:date .
+
+lc:arrivalStop a rdf:Property ;
+               rdfs:label "Arrival Stop"@en ;
+               rdfs:comment "A vehicle will stop here on arrival"@en ;
+               rdfs:domain lc:Connection ;
+.
+
+
+lc:departureTime a rdf:Property ;
+                 rdfs:label "Departure Time"@en ;
+                 rdfs:comment "The time of departure at a certain stop (when e.g., a delay is announced, the lc:departureTime will show that actual time of departure)"@en ;
+                 rdfs:domain lc:Connection;
+                 rdfs:range xsd:date .
+
+lc:departureStop a rdf:Property ;
+                 rdfs:label "Departure Stop"@en ;
+                 rdfs:comment "A vehicle departs here"@en ;
+                 rdfs:domain lc:Connection;
+.
+
+lc:nextConnection a rdf:Property ;
+                  rdfs:label "Next Connection"@en ;
+                  rdfs:comment "The next connection on this vehicle's trajectory"@en ;
+                  rdfs:range lc:Connection ;
+                  rdfs:domain lc:Connection .
+
+lc:arrivalDelay a rdf:Property ;
+                rdfs:label "Arrival Delay"@en ;
+                rdfs:comment "The time in which the lc:arrivalTime differs from the scheduled arrival time"@en ;
+                rdfs:range xsd:duration ;
+                rdfs:domain lc:Connection .
+
+lc:departureDelay a rdf:Property ;
+                  rdfs:label "Departure Delay"@en ;
+                  rdfs:comment "The time in which the lc:departureTime differs from the scheduled departure time"@en ;
+                  rdfs:range xsd:interval ;
+                  rdfs:domain lc:Connection .
