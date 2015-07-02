@@ -18,8 +18,8 @@
                                               dct:rights "Copyright 2014 - Open Transport contributors" .
 
 lc:Ontology a owl:Ontology ;
-            rdfs:label "The Stop Times ontology"@en ;
-            rdfs:comment "This ontology provides the predicates necessary to describe an arrival of a transit vehicle and its departure at a certain Stop."@en ;
+            rdfs:label "The Linked Connections ontology"@en ;
+            rdfs:comment "This ontology provides the predicates necessary to describe a connection or hop from one transit stop to another."@en ;
             vann:preferredNamespacePrefix "lc" ;
             vann:preferredNamespaceUri "http://semweb.mmlab.be/ns/linkedconnections#" ;
             dct:creator [ foaf:mbox "Pieter.Colpaert@UGent.be"; foaf:name "Pieter Colpaert" ] .
