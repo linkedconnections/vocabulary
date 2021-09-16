@@ -32,7 +32,6 @@ lc:Ontology a owl:Ontology ;
 
 
 lc:Connection a rdfs:Class ;
-              rdfs:subClassOf lc:Connection ;
               rdfs:label "Connection"@en ;
               rdfs:comment "Describes a departure at a certain stop and an arrival at a different stop"@en .
 
@@ -42,8 +41,9 @@ lc:CancelledConnection a rdfs:Class ;
                        rdfs:comment "Describes a connection that will not happen anymore, and that should appear as “cancelled” in a route planning result"@en .
 
 lc:UnscheduledConnection a rdfs:Class ;
-                       rdfs:label "Unscheduled Connection"@en ;
-                       rdfs:comment "Describes a connection that will not happen anymore, and that should not appear in a route planning result as it was unscheduled."@en .
+                         rdfs:subClassOf lc:Connection ;
+                         rdfs:label "Unscheduled Connection"@en ;
+                         rdfs:comment "Describes a connection that will not happen anymore, and that should not appear in a route planning result as it was unscheduled."@en .
 
 lc:arrivalTime a rdf:Property ;
                rdfs:label "Arrival Time"@en ;
