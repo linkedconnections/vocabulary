@@ -12,8 +12,7 @@
 <http://semweb.mmlab.be/ns/linkedconnections> a foaf:Document ;
                                               foaf:primaryTopic lc:Ontology ;
                                               dct:issued "2015-07-02"^^xsd:date ;
-                                              dct:modified "2015-07-02"^^xsd:date ;
-                                              #dct:hasFormat <https://raw.githubusercontent.com/linkedconnections/...> ;
+                                              dct:modified "2021-09-16"^^xsd:date ;
                                               dct:license <http://creativecommons.org/licenses/by/3.0/> .
 
 lc:Ontology a owl:Ontology ;
@@ -21,15 +20,30 @@ lc:Ontology a owl:Ontology ;
             rdfs:comment "This ontology provides the predicates necessary to describe a connection or hop from one transit stop to another."@en ;
             vann:preferredNamespacePrefix "lc" ;
             vann:preferredNamespaceUri "http://semweb.mmlab.be/ns/linkedconnections#" ;
-            dct:creator <http://pieter.pm/#me> .
+            dct:creator <https://pietercolpaert.be/#me>, <https://julianrojas.org/#me> .
 
-<http://pieter.pm/#me> foaf:mbox "Pieter.Colpaert@UGent.be" ;
-                       foaf:name "Pieter Colpaert" ;
-                       foaf:homepage <http://pieter.pm> .
+<https://pietercolpaert.be/#me> foaf:mbox <mailto:Pieter.Colpaert@UGent.be> ;
+                                foaf:name "Pieter Colpaert" ;
+                                foaf:homepage <https://pietercolpaert.be/> .
+
+<https://julianrojas.org/#me> foaf:name "Julián Andrés Rojas Meléndez";
+                              foaf:mbox <mailto:julianandres.rojasmelendez@ugent.be> ,
+                              foaf:homepage <https://julianrojas.org/> .
+
 
 lc:Connection a rdfs:Class ;
+              rdfs:subClassOf lc:Connection ;
               rdfs:label "Connection"@en ;
               rdfs:comment "Describes a departure at a certain stop and an arrival at a different stop"@en .
+
+lc:CancelledConnection a rdfs:Class ;
+                       rdfs:subClassOf lc:Connection ;
+                       rdfs:label "Cancelled Connection"@en ;
+                       rdfs:comment "Describes a connection that will not happen anymore, and that should appear as “cancelled” in a route planning result"@en .
+
+lc:UnscheduledConnection a rdfs:Class ;
+                       rdfs:label "Unscheduled Connection"@en ;
+                       rdfs:comment "Describes a connection that will not happen anymore, and that should not appear in a route planning result as it was unscheduled."@en .
 
 lc:arrivalTime a rdf:Property ;
                rdfs:label "Arrival Time"@en ;
