@@ -27,7 +27,7 @@ lc:Ontology a owl:Ontology ;
                                 foaf:homepage <https://pietercolpaert.be/> .
 
 <https://julianrojas.org/#me> foaf:name "Julián Andrés Rojas Meléndez";
-                              foaf:mbox <mailto:julianandres.rojasmelendez@ugent.be> ,
+                              foaf:mbox <mailto:julianandres.rojasmelendez@ugent.be> ;
                               foaf:homepage <https://julianrojas.org/> .
 
 
